@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Guriya ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;700&family=Courgette&family=Great+Vibes&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    .heart {
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      background-color: transparent;
+      animation: floatHearts 10s linear infinite;
+      opacity: 0.8;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(45deg);
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 60px;
+      height: 60px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before { top: -30px; left: 0; }
+    .heart::after { left: -30px; top: 0; }
+
+    .heart span {
+      transform: rotate(-45deg);
+      font-family: 'Great Vibes', cursive;
+      font-size: 14px;
+      color: white;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(110vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-20vh) rotate(45deg); opacity: 0; }
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: rgba(255, 192, 203, 0.85);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 15px #ff69b4;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hidden { display: none; }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    button:hover { background: #ff1493; }
+
+    .options { margin-top: 20px; }
+    .options button { margin: 5px; }
+
+    #step1 h2 { font-family: 'Pacifico', cursive; color: #ff1493; }
+    #step2 h2 { font-family: 'Courgette', cursive; color: #c71585; }
+    #step3 h2 { font-family: 'Great Vibes', cursive; color: #c71585; }
+    #step4 h2 { font-family: 'Pacifico', cursive; color: #d63384; }
+    #step5 h2 { font-family: 'Raleway', sans-serif; color: #e75480; }
+    #step6 h2 { font-family: 'Courgette', cursive; color: #c2185b; }
+    #step7 h2, #step7 p { font-family: 'Quicksand', sans-serif; }
+    #step8 {
+      font-family: 'Quicksand', sans-serif;
+      text-align: left;
+    }
+    #step8 h2 {
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+    }
+
+    audio {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function createHearts() {
+    for (let i = 0; i < 10; i++) {
+      let heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 6 + Math.random() * 4 + "s";
+
+      const span = document.createElement('span');
+      span.textContent = "Janu ♥️";
+      heart.appendChild(span);
+
+      heart.style.top = "-60px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 12000);
+    }
+  }
+  setInterval(createHearts, 2000);
+</script>
+
+<div class="container" id="step1">
+  <h2>💖 Welcome My Princess Guriya 💖</h2>
+  <p>Please enter the secret password</p>
+  <input type="password" id="password" placeholder="Enter password"/>
+  <br />
+  <button onclick="checkPassword()">Submit</button>
+</div>
+
+<div class="container hidden" id="step2">
+  <h2>HY MY DEAR SHAZADI 👑</h2>
+  <button onclick="nextStep(3)">Next</button>
+</div>
+
+<div class="container hidden" id="step3">
+  <h2>I Really love you Janu 😘<br>Do you love me?</h2>
+  <div class="options">
+    <button onclick="nextStep(4)">Yes</button>
+    <button onclick="nextStep(4)">No</button>
+  </div>
+</div>
+
+<div class="container hidden" id="step4">
+  <h2>I miss you So Much Janu 😔<br>You miss me?</h2>
+  <div class="options">
+    <button onclick="nextStep(5)">Yes</button>
+    <button onclick="nextStep(5)">No</button>
+  </div>
+</div>
+
+<div class="container hidden" id="step5">
+  <h2>I kiss you 3 Janu 😘😘😘<br>You kiss me Guriya?</h2>
+  <div class="options">
+    <button onclick="nextStep(6)">Yes</button>
+    <button onclick="nextStep(6)">No</button>
+  </div>
+</div>
+
+<div class="container hidden" id="step6">
+  <h2>Thank you so much Guriya janu apne mere sawal ka jawab diya 💕<br>Apne mujhe itna piyar diya bhut bhut thanks </h2>
+  <button onclick="nextStep(7)">Next</button>
+</div>
+
+<div class="container hidden" id="step7">
+  <h2>Mere shazadi Me ne apke liye ek message likha hai 💌</h2>
+  <p>Kya aap usay parhna chahein gi?</p>
+  <div class="options">
+    <button onclick="nextStep(8)">Yes</button>
+    <button onclick="nextStep(8)">No</button>
+  </div>
+</div>
+
+<div class="container hidden" id="step8">
+  <h2>💌 My Dear Guriya Jan 💌</h2>
+  <p>
+    Ma apse bhut piyar kerta ho or bhut ziyada muhabat kerta ho.<br>
+    Mere life ma jena ka sahara sirf ap ho guriya.<br>
+    Mere zindgi apki waja se ha, ma apka bina nai rah skta.<br>
+    Ap mere khoish ho jisko hasil kerke ma apne nayi zindgi ka aghaz karunga.<br>
+    Mere shazadi ap duniya ma sabse piyari ho.<br><br>
+
+    Mera dil chahata ha ka ma apko dekhta raho, kabhi ap mujh se door na ho.<br>
+    Hamisha mere paas raho, mujhe dekhti raho, ma apko dekhta rahun.<br>
+    Or ham dono aise hi zindgi guzarein. 💑<br><br>
+
+    I really love you Guriya Janu 💖<br>
+    I miss you so much Guriya Janu 😘<br>
+    I kiss you 3 times Guriya Janu 😘😘😘<br>
+    I hug you Guriya Janu 🤗<br>
+    I like you Guriya Janu 💘<br>
+    I without you Guriya Janu 💔<br><br>
+
+    Mere dua ha Allah Pak apko hamesha khush rakhe,<br>
+    apki har khwahish puri kare,<br>
+    apko jald mera kar de 😇,<br>
+    aur ap se sari musibatein door kare. (Ameen) 🤲<br><br>
+
+    ❤️ Thanks for reading ❤️
+  </p>
+
+  <h3>🎙️ Voice Messages For You:</h3>
+
+  <p><strong>Voice 1:</strong></p>
+  <audio controls>
+    <source src="guriya-voice.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio><br><br>
+
+  <p><strong>Voice 2:</strong></p>
+  <audio controls>
+    <source src="guriya-voice2.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio><br><br>
+
+  <p><strong>Voice 3:</strong></p>
+  <audio controls>
+    <source src="guriya-voice3.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio><br><br>
+
+  <p><strong>Voice 4:</strong></p>
+  <audio controls>
+    <source src="guriya-voice4.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+  function checkPassword() {
+    const input = document.getElementById("password").value;
+    if (input === "guriyajanu") {
+      document.getElementById("step1").classList.add("hidden");
+      document.getElementById("step2").classList.remove("hidden");
+    } else {
+      alert("Wrong password, try again!");
+    }
+  }
+
+  function nextStep(step) {
+    for (let i = 1; i <= 8; i++) {
+      document.getElementById("step" + i).classList.add("hidden");
+    }
+    document.getElementById("step" + step).classList.remove("hidden");
+  }
+</script>
+
+</body>
+</html>

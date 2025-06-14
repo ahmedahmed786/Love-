@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Beautiful Janu 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      overflow: hidden;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 24px;
+      animation: float 12s linear infinite;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+    .container {
+      max-width: 400px;
+      margin: 80px auto;
+      padding: 25px;
+      border: 4px solid #ff6f91;
+      border-radius: 25px;
+      background-color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #e91e63;
+      margin-bottom: 15px;
+    }
+    .hidden { display: none; }
+    button {
+      padding: 12px 24px;
+      margin: 8px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: none;
+      background-color: #ff3d67;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff1c50;
+    }
+    input[type="password"] {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      width: 80%;
+    }
+    p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container" id="step1">
+  <h2>Janu 💖</h2>
+  <p>Enter Password:</p>
+  <input type="password" id="password" placeholder="Enter here...">
+  <br>
+  <button onclick="checkPassword()">Next</button>
+</div>
+
+<div class="container hidden" id="step2">
+  <h2>Hi Meri Shahzadi 👑</h2>
+  <button onclick="nextStep(3)">Next</button>
+</div>
+
+<div class="container hidden" id="step3">
+  <h2>I Love You Janu 💌<br>Do You Love Me?</h2>
+  <button onclick="nextStep(4)">Yes</button>
+  <button onclick="nextStep(4)">No</button>
+</div>
+
+<div class="container hidden" id="step4">
+  <h2>I Miss You Janu 😢<br>You Miss Me?</h2>
+  <button onclick="nextStep(5)">Yes</button>
+  <button onclick="nextStep(5)">No</button>
+</div>
+
+<div class="container hidden" id="step5">
+  <h2>I Kiss You 😘<br>You Kiss Me?</h2>
+  <button onclick="nextStep(6)">Yes</button>
+  <button onclick="nextStep(6)">No</button>
+</div>
+
+<div class="container hidden" id="step6">
+  <h2>Thank You So Much Janu 💕<br>Apne Mujhe Itna Pyaar Diya</h2>
+  <button onclick="nextStep(7)">Next</button>
+</div>
+
+<div class="container hidden" id="step7">
+  <h2>Ma Apke Liye Ek Message Likha Hai ❤️<br>Kya Aap Usse Padhna Chahegi?</h2>
+  <button onclick="nextStep(8)">Yes</button>
+  <button onclick="nextStep(8)">No</button>
+</div>
+
+<div class="container hidden" id="step8">
+  <h2>Mera Message:</h2>
+  <p>
+    My dear guriya jan,<br><br>
+    Ma apse bhut piyar kerta ho or bhut ziyada muhabat kerta ho. Mere life ma jena ka sahara sirf ap ho. Guriya, mere zindgi apki waja se ha. Ma apka bina nai rah skta. Ap mere khoish ho jis ko hasil ker ke ma apne new zindgi ki shurwat karo ga.<br><br>
+    Mere shazadi, ap duniya ma sabse piyari ho. Mere lia ap jesa is duniya ma koi nai. Mera bhut dil kerta ha ka ma apko dekhta rao. Khbi ap mujh se door na ho, hamsha mere pass raho. Mujha dekhti raho, ma apko dekhta raho, or ham dono asa hi zindgi guzar dein.<br><br>
+    <strong>I really love you guriya 💖<br>
+    I miss you so much guriya 😢<br>
+    I kiss you 3 times guriya 😘<br>
+    I hug you guriya 🤗<br>
+    I like you guriya 💕<br>
+    I can't live without you guriya 💔</strong><br><br>
+    Meri dua ha: Allah apko hamsha khush rakhein, apki har khwahish poori ho, apko jald mera karde. Ap se sari musibatein door kare. (Ameen) 🤲<br><br>
+    <strong>Thanks for reading ❤️</strong>
+  </p>
+</div>
+
+<script>
+  function checkPassword() {
+    const pass = document.getElementById("password").value.trim();
+    if (pass.toLowerCase() === "janu") {
+      nextStep(2);
+    } else {
+      alert("Wrong password! Try again 💔");
+    }
+  }
+  function nextStep(step) {
+    for (let i = 1; i <= 8; i++) {
+      document.getElementById("step" + i).classList.add("hidden");
+    }
+    document.getElementById("step" + step).classList.remove("hidden");
+  }
+  const heartContainer = document.getElementById("hearts");
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 30 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 5 + 8) + "s";
+    heartContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), 12000);
+  }, 300);
+</script>
+
+</body>
+</html>
